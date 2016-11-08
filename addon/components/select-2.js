@@ -180,7 +180,7 @@ var Select2Component = Ember.Component.extend({
           // items may contain children, so filter them, too
           var filteredChildren = [];
 
-          if (item.children) {
+          if (item.children && item.children.reduce) {
             filteredChildren = item.children.reduce(function(children, child) {
               if (select2.matcher(query.term, get(child, optionLabelPath)) || select2.matcher(query.term, get(child, optionHeadlinePath))) {
                 children.push(child);
